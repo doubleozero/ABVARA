@@ -70,6 +70,24 @@ class ABVARA(QWidget):
         calculator = Rate()
         calculator.rate_calculator(self.xp, self.pub)
 
+        self.clear_widgets()
+        self.initial_responses(calculator.xp_message, calculator.pub_message)
+
+    def clear_widgets(self):
+        self.intro_label.deleteLater()
+        self.about_you.deleteLater()
+        self.exp_prompt.deleteLater()
+        self.exp_box.deleteLater()
+        self.publisher_label.deleteLater()
+        self.pub_box.deleteLater()
+        self.submit_btn.deleteLater()
+
+    def initial_responses(self, xp_message, pub_message):
+        xp_message_label = QLabel(xp_message)
+        pub_message_label = QLabel(pub_message)
+        self.y_layout.addWidget(xp_message_label)
+        self.y_layout.addWidget(pub_message_label)
+
 
 # Start UI
 if __name__ == '__main__':
